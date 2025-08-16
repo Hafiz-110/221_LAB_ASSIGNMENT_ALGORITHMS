@@ -2,8 +2,8 @@ from collections import deque
 import sys
 input = sys.stdin.readline
 
-def graph(v, e):
-    graph = [[] for _ in range(v+1)]    # 1-indexed
+def graph(ver, e):
+    graph = [[] for _ in range(ver+1)]    # 1-indexed
     for i in range(e):
         u, v = map(int, input().split())
         graph[u].append(v)
