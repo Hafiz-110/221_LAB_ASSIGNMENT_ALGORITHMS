@@ -31,6 +31,7 @@ def bfs(s, d):
                 distance[v] = distance[u]+1
                 parent[v] = u
                 q.append(v)
+                
     if distance[d] == float('inf'): print(-1)
     else:
         path = []
@@ -42,3 +43,4 @@ def bfs(s, d):
         print(*reversed(path))
 
 bfs(s, d)
+
