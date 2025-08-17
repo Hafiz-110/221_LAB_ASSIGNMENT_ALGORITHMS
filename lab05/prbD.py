@@ -28,12 +28,12 @@ def bfs(g, s, d, n):
                 q.append(v)
 
     if distance[d] == float('inf'): return -1, []
-    else:
-        path = []
-        u = d
-        while u:
-            path.append(u)
-            u = parent[u]
+
+    path = []
+    u = d
+    while u:
+        path.append(u)
+        u = parent[u]
     path.reverse()
     return len(path)-1, path
 
@@ -48,4 +48,5 @@ if len_path2 == -1:
 full_path = path1+path2[1:]
 print(len(full_path)-1)
 print(*full_path)
+
 
