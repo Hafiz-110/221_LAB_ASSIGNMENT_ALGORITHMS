@@ -24,12 +24,11 @@ def dfs_cycle(g, s, visited):
 n, m = map(int, input().split())
 g = graph(n, m)
 
-visited = [0]*(n+1); cycle = False
+visited = [0]*(n+1)
 for i in range(1, n+1):
     if visited[i] == 0:
         if dfs_cycle(g, i, visited):
-            cycle = True; break
-        
-if cycle: print('YES')
-else: print('NO')
+            print('YES'); exit()
+
+print('NO')
 
