@@ -7,8 +7,6 @@ def graph(ver, e):
     for i in range(e):
         u, v = map(int, input().split())
         g[u].append(v)
-    for i in range(1, ver+1):
-        g[i].sort()
 
     return g
 
@@ -50,3 +48,4 @@ if len_path2 == -1:
 full_path = path1+path2[1:]
 print(len(full_path)-1)
 print(*full_path)
+
