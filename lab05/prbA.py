@@ -3,37 +3,33 @@ import sys
 input = sys.stdin.readline
 
 def graph(ver, e):
-    graph = [[] for _ in range(ver+1)]    # 1-indexed
-    for i in range(e):
+    g = [[] for _ in range(ver+1)]
+    for _ in range(e):
         u, v = map(int, input().split())
-        graph[u].append(v)
-        graph[v].append(u)  # undirected
-    
-    return graph
+        g[u].append(v); g[v].append(u)
+    return g
 
-def bfs(g, s):
-    n = len(g)-1    # 1-indexed
-    visited = [0]*(n+1)
-    parent = [-1]*(n+1)
-    distance = [-1]*(n+1)
-
-    q = deque()
-    visited[s] = 1
-    distance[s] = 0
-    q.append(s)
+def bfs(g ,s):
+    n = len(g)-1
+    visited = {i:0 for i in range(1, n+1)}
+    parent = {i:-1 for i in range(1, n+1)}
+    distance = {i:-1 for i in range(1, n+1)}
     order = []
+
+    visited[s] = 1; distance[s] = 0
+    q = deque(); q.append(s)
 
     while q:
         u = q.popleft()
         order.append(u)
-        for adj_v in graph[u]:
-            if visited[adj_v]==0:
-                visited[adj_v] = 1
-                parent[adj_v] = u
-                distance[adj_v] = distance[u]+1
-                q.append(adj_v)
+        for v in g[u]:
+            if visited[v] == 0:
+                visited[v] = 1
+                parent[v] = u
+                distance[v] = distance[u] + 1
+                q.append(v)
     print(*order)
 
-n, m = map(int, input().split())    # vertices, edges
-graph = graph(n, m)
-bfs(graph, 1)
+n, m = map(int, input().split())
+g = graph(n, m)
+bfs(g, 1)
