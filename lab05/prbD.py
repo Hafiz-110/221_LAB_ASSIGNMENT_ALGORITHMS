@@ -35,7 +35,7 @@ def bfs(g, s, d, n):
         path.append(u)
         u = parent[u]
     path.reverse()
-    return len(path)-1, path
+    return len(path)-1, path 
 
 len_path1, path1 = bfs(graphh, s, k, n)
 if len_path1 == -1:
@@ -48,5 +48,6 @@ if len_path2 == -1:
 full_path = path1+path2[1:]
 print(len(full_path)-1)
 print(*full_path)
+
 
 
