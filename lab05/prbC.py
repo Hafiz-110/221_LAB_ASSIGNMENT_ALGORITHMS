@@ -18,7 +18,7 @@ def graph(ver, e):
 n, m, s, d = map(int, input().split())
 graphh = graph(n, m)
 
-def bfs(s, d):
+def bfs(g, s, d, n):
     distance = {i:float('inf') for i in range(1, n+1)}
     parent = {i:-1 for i in range(1, n+1)}
     distance[s] = 0
@@ -26,12 +26,12 @@ def bfs(s, d):
     q = deque(); q.append(s)
     while q:
         u = q.popleft()
-        for v in graphh[u]:
+        for v in g[u]:
             if distance[v] > distance[u]+1:
                 distance[v] = distance[u]+1
                 parent[v] = u
                 q.append(v)
-                
+
     if distance[d] == float('inf'): print(-1)
     else:
         path = []
@@ -42,5 +42,4 @@ def bfs(s, d):
         print(len(path) - 1)
         print(*reversed(path))
 
-bfs(s, d)
-
+bfs(graphh, s, d, n)
