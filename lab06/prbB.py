@@ -23,7 +23,7 @@ def bipartite(g, n):
         if color[start] == -1:
             q = deque([start])
             color[start] = 0
-            count = [1, 0]
+            count = [1, 0]    # count[0] = zeros, count[1] = ones
             while q:
                 u = q.popleft()
                 for v in g[u]:
@@ -37,3 +37,4 @@ def bipartite(g, n):
     print(res)
 
 bipartite(g, n)
+
