@@ -12,18 +12,18 @@ def graph(n, m):
 
 def bfs(g, sources, n):
     dist = [-1] * (n + 1)
-    dq = deque()
+    q = deque()
     for s in sources:
         if dist[s] == -1:
             dist[s] = 0
-            dq.append(s)
+            q.append(s)
 
-    while dq:
-        u = dq.popleft()
+    while q:
+        u = q.popleft()
         for v in g[u]:
             if dist[v] == -1:
                 dist[v] = dist[u] + 1
-                dq.append(v)
+                q.append(v)
     return dist
 
 n, m, s, q = map(int, input().split())
