@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 def graph(n, m):
     g = [[] for _ in range(n+1)]
     for _ in range(m):
