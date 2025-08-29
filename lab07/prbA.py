@@ -24,7 +24,7 @@ def dijkstra(g, n, s, d):
 
     while pq:
         dist_u, u = heapq.heappop(pq)
-        if u==d: break 
+        if u==d: break    # modification
 
         if dist_u == dist[u]:
             for v, w in g[u]:
