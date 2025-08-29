@@ -13,7 +13,7 @@ g = graphw_weight(n, m)
 
 def dijkstra(g, s, n):
     dist = [float('inf') for _ in range(n+1)]
-    parent = [None for _ in range(n+1)]
+    
 
     dist[s] = 0
     pq = [(0, s)]
@@ -24,7 +24,7 @@ def dijkstra(g, s, n):
             for v, w in g[curr]:
                 if dist[curr]+w < dist[v]:
                     dist[v] = dist[curr]+w
-                    parent[v] = curr
+                    
                     heapq.heappush(pq, (dist[v], v))
     return dist
 
@@ -40,3 +40,4 @@ for i in range(1, n+1):
             best_n = i
 if best_n == -1: print(-1)
 else: print(best_time, best_n)
+
