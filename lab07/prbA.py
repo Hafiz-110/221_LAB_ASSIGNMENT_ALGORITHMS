@@ -31,8 +31,9 @@ def dijkstra(g, n, s, d):
                 if dist[u]+w < dist[v]:
                     dist[v] = dist[u]+w
                     p[v] = u
-                    heapq.heappush(pq, (dist[v], v))
+                    heapq.heappush(pq, (dist[v], v))    # dijkstra algo done!
 
+    # path construction
     if dist[d] == float('inf'): return -1, []
 
     path = []
